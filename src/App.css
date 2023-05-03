@@ -1,5 +1,75 @@
+.main-bg {
+  height: 300px;
+  /* background-image: url('../public/imgs/bg_nike.png'); */
+  background-size: cover;
+  background-position: center;
+}
+.bold_font {
+  font-family: SF-Pro-Display-Bold;
+  font-size: larger;
+  color: #333333;
+}
+.main_font {
+  font-family: SF-Pro-Display-Medium;
+  font-size: medium;
+  color: #333333;
+  opacity: 80%;
+}
+.second_font {
+  font-family: SF-Pro-Display-Medium;
+  font-size: small;
+  color: #333333;
+  opacity: 50%;
+}
+.flex {
+  display: flex;
+  /* flex-direction: column; */
+  /* align-items: center; */
+  justify-content: center;
+  /* padding: 12px; */
+}
+#flexLeft {
+  display: flex;
+  /* flex-direction: column; */
+  /* align-items: center; */
+  justify-content: left;
+}
+.card {
+  margin: 12px;
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: center;
+}
+.image{
+  margin: 12px;
+  padding: 16px;
+  width: 100px;
+  height: 100px;
+  object-fit:scale-down;
+}
+.mycard {
+  margin-bottom: 16px;
+  width: 200px;
+  height: 200px;
+  object-fit:scale-down;
+}
+.titleText {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; */
+  margin-bottom: 16px;
+  width: 50px;
+  height: 50px;
+  /* object-fit:scale-down; */
+}
+
 .App {
   text-align: center;
+  font-family: SF-Pro-Display-Medium;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 .App-logo {
@@ -26,6 +96,11 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.img {
+  max-width: 50%;
+  max-height: 50%;
 }
 
 @keyframes App-logo-spin {
