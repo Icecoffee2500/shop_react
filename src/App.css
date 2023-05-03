@@ -4,23 +4,7 @@
   background-size: cover;
   background-position: center;
 }
-.bold_font {
-  font-family: SF-Pro-Display-Bold;
-  font-size: larger;
-  color: #333333;
-}
-.main_font {
-  font-family: SF-Pro-Display-Medium;
-  font-size: medium;
-  color: #333333;
-  opacity: 80%;
-}
-.second_font {
-  font-family: SF-Pro-Display-Medium;
-  font-size: small;
-  color: #333333;
-  opacity: 50%;
-}
+
 .flex {
   display: flex;
   /* flex-direction: column; */
@@ -101,6 +85,31 @@
 .img {
   max-width: 50%;
   max-height: 50%;
+}
+.bold_font {
+  font-family: SF-Pro-Display-Bold;
+  font-size: larger;
+  color: #333333;
+}
+.main_font {
+  font-family: SF-Pro-Display-Medium;
+  font-size: medium;
+  color: #ff0000;
+  opacity: 80%;
+}
+
+.second_font {
+  font-family: SF-Pro-Display-Medium;
+  font-size: small;
+  color: #333333;
+  opacity: 50%;
+}
+
+#headerStyle {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  opacity: 95%;
 }
 
 @keyframes App-logo-spin {
