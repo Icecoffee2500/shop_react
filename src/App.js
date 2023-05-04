@@ -7,11 +7,12 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useState } from 'react';
-import data from './data.js';
+import {data, cardData} from './data.js';
 
 function App() {
 
   let [shoes] = useState(data);
+  let [card, setCard] = useState(cardData);
 
   return (
     <div className="App">
@@ -20,41 +21,21 @@ function App() {
       {/* BODY */}
       {/* <div className='main-bg' style={{ backgroundImage : 'url(./imgs/bg_nike.png)' }}></div> */}
 
-      <div className="flex" >
-        <Card className='card' style={{ width: '18rem' }}>
-          <Card.Img className='image' variant="top" src="./imgs/swoosh.png" />
-          <Card.Body>
-            <Card.Title className='main_font'>Nike</Card.Title>
-            <Card.Text className='second_font' >
-              Just Do It.
-            </Card.Text>
-          </Card.Body>
-        </Card>
-        <Card className='card' style={{ width: '18rem' }}>
-          <Card.Img className='image' variant="top" src="./imgs/tesla-logo-png.png" />
-          <Card.Body>
-            <Card.Title className='main_font'>Tesla</Card.Title>
-            <Card.Text className='second_font' >
-              Just Do It.
-            </Card.Text>
-          </Card.Body>
-        </Card>
-        <Card className='card' style={{ width: '18rem' }}>
-          <Card.Img className='image' variant="top" src="./imgs/apple-logo.png" />
-          <Card.Body>
-            <Card.Title className='main_font'>Apple</Card.Title>
-            <Card.Text className='second_font' >
-              Just Do It.
-            </Card.Text>
-          </Card.Body>
-        </Card>
-      </div>
+      <Row className="flex">
+        {
+          card.map(function(a, i) {
+            return (
+              <MyCard card = {a} key = {i}/>
+            );
+          })
+        }
+      </Row>
 
-      <Row>
+      <Row className="flex">
         {
           shoes.map(function(a, i){
             return (
-              <Product key={i} shoes = {shoes} idx = {i} />
+              <Product shoes = {a} key = {i} />
             );
           })
         }
@@ -66,18 +47,28 @@ function App() {
 export default App;
 
 let Product = (props) => {
-  // console.log(props.idx);
-  const idx = props.idx;
   return (
     <Col sm style={{ width: '18rem' }}>
-      <img className='mycard' src={props.shoes[idx].img_src} />
+      <img className='mycard' src={props.shoes.img_src} />
       <Col sm style={{height : "50px", marginBottom : "16px"}}>
-        <h4 className='second_font'>{props.shoes[idx].subtitle}</h4>
-        <h4 className='bold_font'>{props.shoes[idx].title}</h4>
+        <h4 className='second_font'>{props.shoes.subtitle}</h4>
+        <h4 className='bold_font'>{props.shoes.title}</h4>
       </Col>
       <p className='second_font'>
-        {props.shoes[idx].content}
+        {props.shoes.content}
       </p>
     </Col>
+  )
+}
+
+let MyCard = (props) => {
+  return (
+    <Card className='card' style={{ width: '18rem' }}>
+      <Card.Img className='image' variant="top" src={props.card.img_src} />
+      <Card.Body>
+        <Card.Title className='main_font'> {props.card.title} </Card.Title>
+        <Card.Text className='second_font' > {props.card.content} </Card.Text>
+      </Card.Body>
+    </Card>
   )
 }

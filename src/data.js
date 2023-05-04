@@ -24,4 +24,27 @@ let data = [
     }
 ]
 
-export default data;
+let cardData = [
+    {
+        id : 0,
+        title : "Nike",
+        content : "Just Do It.",
+        img_src : "./imgs/swoosh.png"
+    },
+    
+    {
+        id : 1,
+        title : "Tesla",
+        content : "Just Do It.",
+        img_src : "./imgs/tesla-logo-png.png"
+    },
+
+    {
+        id : 2,
+        title : "Apple",
+        content : "Just Do It.",
+        img_src : "./imgs/apple-logo.png"
+    },
+]
+
+export {data, cardData};
