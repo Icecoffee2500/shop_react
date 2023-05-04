@@ -21,17 +21,17 @@ function App() {
       {/* BODY */}
       {/* <div className='main-bg' style={{ backgroundImage : 'url(./imgs/bg_nike.png)' }}></div> */}
 
-      <Row className="flex">
+      <Row className="grid-container">
         {
           card.map(function(a, i) {
             return (
-              <MyCard card = {a} key = {i}/>
+              <MyCard card = {a} key = {i} idx = {i} />
             );
           })
         }
       </Row>
 
-      <Row className="flex">
+      <Row className="grid-container">
         {
           shoes.map(function(a, i){
             return (
@@ -63,7 +63,7 @@ let Product = (props) => {
 
 let MyCard = (props) => {
   return (
-    <Card className='card' style={{ width: '18rem' }}>
+    <Card className={'card' + (props.idx+1)} style={{ width: '18rem' }}>
       <Card.Img className='image' variant="top" src={props.card.img_src} />
       <Card.Body>
         <Card.Title className='main_font'> {props.card.title} </Card.Title>

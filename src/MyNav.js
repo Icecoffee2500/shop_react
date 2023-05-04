@@ -6,7 +6,7 @@ import './App.css';
 
 function MyNav() {
     return (
-        <div className="Nav" id='headerStyle'>
+        <div className="Nav" id='headerStyle' style={{marginBottom : "16px"}} >
             <Navbar collapseOnSelect expand="lg" bg='white' sticky='top'>
                 <Container>
                     <Navbar.Brand href="#home"><img className='img' src = '/imgs/magic_botton.png'/></Navbar.Brand>

@@ -18,10 +18,53 @@
   /* align-items: center; */
   justify-content: left;
 }
-.card {
-  margin: 12px;
-  display: flex;
+.grid-container {
+  display: grid;
+  margin: 0px 24px 0px 24px;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* grid-area: "a b c"; */
+  align-items: center;
+  justify-content: center;
+  /* grid-auto-flow: row; */
+  place-items: center;
+}
+.item1 {
+  grid-area: a;
+}
+.item2 {
+  grid-area: b;
+}
+.item3 {
+  grid-area: c;
+}
+.card1 {
+  /* grid-area: a; */
+  /* margin: 12px; */
+  display: grid;
   /* flex-direction: column; */
+  grid-template-columns: 1fr 2fr;
+  grid-auto-flow: row;
+  align-items: center;
+  justify-content: center;
+}
+.card2 {
+  /* grid-area: b; */
+  /* margin: 12px; */
+  display: grid;
+  /* flex-direction: column; */
+  grid-template-columns: 1fr 2fr;
+  grid-auto-flow: row;
+  align-items: center;
+  justify-content: center;
+  /* z-index: -1; */
+}
+.card3 {
+  /* grid-area: c; */
+  /* margin: 12px; */
+  display: grid;
+  /* flex-direction: column; */
+  grid-template-columns: 1fr 2fr;
+  grid-auto-flow: row;
   align-items: center;
   justify-content: center;
 }
@@ -94,7 +137,7 @@
 .main_font {
   font-family: SF-Pro-Display-Medium;
   font-size: medium;
-  color: #ff0000;
+  color: #333333;
   opacity: 80%;
 }
 
@@ -109,7 +152,7 @@
   position: sticky;
   top: 0;
   z-index: 1;
-  opacity: 95%;
+  opacity: 100%;
 }
 
 @keyframes App-logo-spin {
