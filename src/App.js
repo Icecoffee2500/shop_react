@@ -1,74 +1,36 @@
 /* eslint-disable */
-import MyNav from './MyNav';
+import MyNav from './component/MyNav';
+import MainPage from './pages/MainPage';
+import DetailPage from './pages/DetailPage';
+import { data, cardData } from './component/data';
 import './App.css';
 import './font.css';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import { useState } from 'react';
-import {data, cardData} from './data.js';
+import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom'
+import { useCallback, useState } from 'react'
 
 function App() {
 
-  let [shoes] = useState(data);
+  let [shoes, setShoes] = useState(data);
   let [card, setCard] = useState(cardData);
+
+  let updateShoes = (new_data) => {
+    setShoes(new_data);
+  };
+  // console.log(typeof updateShoes);
 
   return (
     <div className="App">
+
       {/* HEADER */}
       <MyNav />
-      {/* BODY */}
-      {/* <div className='main-bg' style={{ backgroundImage : 'url(./imgs/bg_nike.png)' }}></div> */}
 
-      <Row className="grid-container">
-        {
-          card.map(function(a, i) {
-            return (
-              <MyCard card = {a} key = {i} idx = {i} />
-            );
-          })
-        }
-      </Row>
-
-      <Row className="grid-container">
-        {
-          shoes.map(function(a, i){
-            return (
-              <Product shoes = {a} key = {i} />
-            );
-          })
-        }
-      </Row>
+      <Routes>
+        <Route path='/' element={ <MainPage shoes = {shoes} card = {card} updateShoes = {updateShoes} /> } />
+        <Route path='/detail/:id' element={ <DetailPage shoes = {shoes} /> } />
+        <Route path='*' element={ <h1> 404 Error! 뒤로가셈 </h1> } />
+      </Routes>
       
     </div>
   );
 }
 export default App;
-
-let Product = (props) => {
-  return (
-    <Col sm style={{ width: '18rem' }}>
-      <img className='mycard' src={props.shoes.img_src} />
-      <Col sm style={{height : "50px", marginBottom : "16px"}}>
-        <h4 className='second_font'>{props.shoes.subtitle}</h4>
-        <h4 className='bold_font'>{props.shoes.title}</h4>
-      </Col>
-      <p className='second_font'>
-        {props.shoes.content}
-      </p>
-    </Col>
-  )
-}
-
-let MyCard = (props) => {
-  return (
-    <Card className={'card' + (props.idx+1)} style={{ width: '18rem' }}>
-      <Card.Img className='image' variant="top" src={props.card.img_src} />
-      <Card.Body>
-        <Card.Title className='main_font'> {props.card.title} </Card.Title>
-        <Card.Text className='second_font' > {props.card.content} </Card.Text>
-      </Card.Body>
-    </Card>
-  )
-}
