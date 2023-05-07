@@ -17,6 +17,7 @@ let MainPage = (props) => {
     let fetchData = () => {
       axios.get('https://codingapple1.github.io/shop/data3.json')
       .then((response)=>{
+        console.log(response);
         let newData = [...shoes, ...response.data];
         props.updateShoes(newData);
       })

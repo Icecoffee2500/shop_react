@@ -4,10 +4,15 @@ import '../App.css';
 import '../font.css';
 import Col from 'react-bootstrap/Col';
 import { Nav } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { addItem } from '../store';
 
 let DetailPage = (props) => {
 
+  let state = useSelector((state) => state )
+  let dispatch = useDispatch()
   let {id} = useParams();
   let rightShoes = props.shoes.find(function(x){
     return x.id == id;
@@ -29,6 +34,11 @@ let DetailPage = (props) => {
       <p className='second_font'>
           {rightShoes.content}
       </p>
+      <Button variant="outline-danger" onClick={()=>{
+        let result = {id : 1, name : 'rightShoes.title', count : 1}
+        dispatch(addItem( rightShoes.title ))
+      }}> 장바구니에 추가 </Button>
+
       <Nav variant="tabs"  defaultActiveKey="link0">
           <Nav.Item>
             <Nav.Link eventKey="link0" onClick={ () => setTab(0) }>버튼0</Nav.Link>
